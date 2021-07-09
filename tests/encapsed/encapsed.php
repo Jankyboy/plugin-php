@@ -447,3 +447,41 @@ $php73FlexibleHeredoc2 = <<<EOD
      b
     c
   EOD;
+
+$xml = <<<XML
+     foo{$bar}bazzzzz
+    XML;
+
+function foo() {
+    $xml = <<<XML
+        foo{$bar}bazzzzz
+        XML;
+}
+
+// Multiline with variable
+function b()
+{
+    $a = "
+        This multiline string
+        should keep it's indent level.
+        Even though it has a variable: $c
+    ";
+}
+
+// Heredoc in function call with correct indentation
+printf(
+    <<<EOT
+    Heredoc text used directly as argument
+    in a function call.
+    EOT
+    ,
+);
+
+// Heredoc in function call with wrong indentation
+printf(
+    <<<EOT
+        Heredoc text used directly as argument
+        in a function call.
+        EOT
+    ,
+);

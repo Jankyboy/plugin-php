@@ -55,14 +55,27 @@ try {
     // Comment
 }
 
+// PHP 8.0 non-capturing exception catch
+try {
+    // Something
+} catch (\\Exception) {
+    // Nothing
+}
+
+try {
+    // Something
+} catch (MyException | OtherException) {
+    // Nothing
+}
+
 =====================================output=====================================
 <?php
 try {
     throw new OtherException();
 } catch (Exception | TestException $e) {
-    echo 'Caught exception: ', $e->getMessage();
+    echo "Caught exception: ", $e->getMessage();
 } catch (OtherException $i) {
-    echo 'Caugh other';
+    echo "Caugh other";
 } finally {
     echo "First finally";
 }
@@ -84,10 +97,10 @@ try {
 }
 
 throw new VeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryVeryLongClassException(
-    'exception'
+    "exception"
 );
 throw $e;
-throw new \\Exception('Bad logic in order cancel');
+throw new \\Exception("Bad logic in order cancel");
 
 try {
 } catch (Exception $e) {
@@ -105,6 +118,19 @@ try {
     // Comment
 } finally {
     // Comment
+}
+
+// PHP 8.0 non-capturing exception catch
+try {
+    // Something
+} catch (\\Exception) {
+    // Nothing
+}
+
+try {
+    // Something
+} catch (MyException | OtherException) {
+    // Nothing
 }
 
 ================================================================================

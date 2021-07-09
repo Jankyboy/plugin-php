@@ -15,5 +15,4 @@ $obj->{call()};
 // encapsed (offset type)
 $obj->foo_{'test' . 'bar'};
 // variable with literal with call
-// TODO https://github.com/glayzzle/php-parser/issues/254
-// $obj->${call()};
+$obj->${call()};
